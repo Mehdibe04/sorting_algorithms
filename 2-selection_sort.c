@@ -1,37 +1,37 @@
 #include "sort.h"
 
 /**
- * slction_srt - sortg an arr using selection sort algo
+ * selection_sort - sortg an array using selection sort algo
  *
- * @arr: d arr 2 srt
- * @sz: d sz of d arr
+ * @array: d arr 2 srt
+ * @size: d sz of d array
  */
 
-void slction_srt(int *arr, size_t sz)
+void selection_sort(int *array, size_t size)
 {
 	int smllst, tmp;
 	size_t x, y;
 
-	if (!arr || sz < 2)
+	if (!array || size < 2)
 		return;
 
 	x = 0;
-	while (x < sz - 1)
+	while (x < size - 1)
 	{
 		smllst = x;
 		y = x + 1;
-		while (y < sz)
+		while (y < size)
 		{
-			if (arr[y] < arr[smllst])
+			if (array[y] < array[smllst])
 				smllst = y;
 			y++;
 		}
 		if (smllst != (int)x)
 		{
-			tmp = arr[x];
-			arr[x] = arr[smllst];
-			arr[smllst] = tmp;
-			print_array(arr, sz);
+			tmp = array[x];
+			array[x] = array[smllst];
+			array[smllst] = tmp;
+			print_array(array, size);
 		}
 		x++;
 	}

@@ -1,31 +1,31 @@
 #include "sort.h"
 
 /**
- * bbble_sortma - sorting an arr using bubble sort algorithm
+ * bubble_sort - sorting an array using bubble sort algorithm
  *
  *
- * @arr: d arr 2 srt
- * @sz: d sz of d arr
+ * @array: d arr 2 srt
+ * @size: d sz of d arr
  */
 
-void bbble_sortma(int *arr, size_t sz)
+void bubble_sort(int *array, size_t size)
 {
 	size_t x, y;
 	int tmp;
 
-	if (sz < 2 || !arr)
+	if (size < 2 || !array)
 		return;
 
-	for (x = 0; x < sz; x++)
+	for (x = 0; x < size; x++)
 	{
-		for (y = 0; y < sz; y++)
+		for (y = 0; y < size; y++)
 		{
-			if (arr[y] < arr[y - 1])
+			if (array[y] < array[y - 1])
 			{
-				tmp = arr[y];
-				arr[y] = arr[y - 1];
-				arr[y - 1] = tmp;
-				print_array(arr, sz);
+				tmp = array[y];
+				array[y] = array[y - 1];
+				array[y - 1] = tmp;
+				print_array(array, size);
 			}
 		}
 	}

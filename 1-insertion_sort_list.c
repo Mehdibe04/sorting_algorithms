@@ -1,20 +1,20 @@
 #include "sort.h"
 
 /**
- * insrt_srt_lst - sort a doubly linked lst of ints in ascending
+ * insertion_sort_list - sort a doubly linked list of ints in ascending
  * order usg d nsrt sort algo
- * @lst: dbly lkd lst of ints
+ * @list: dbly lkd list of ints
  * Return: Nothing
  */
 
-void insrt_srt_lst(listint_t **lst)
+void insertion_sort_list(listint_t **list)
 {
 	listint_t *y, *tmp, *currr;
 
-	if (!lst || !*lst || !(*lst)->next)
+	if (!list || !*list || !(*list)->next)
 		return;
 
-	currr = (*lst)->next;
+	currr = (*list)->next;
 	while (currr)
 	{
 		y = currr;
@@ -31,8 +31,8 @@ void insrt_srt_lst(listint_t **lst)
 			y->next = tmp;
 
 			if (!y->prev)
-				*lst = y;
-			print_list(*lst);
+				*list = y;
+			print_list(*list);
 		}
 		currr = currr->next;
 	}

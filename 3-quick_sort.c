@@ -1,88 +1,88 @@
 #include "sort.h"
 
 /**
- * partt_func - partt an arr usg d Lomuto partt scheme
- * @arr: arr of ints
+ * partt_func - partt an array usg d Lomuto partt scheme
+ * @array: arr of ints
  * @srtt: lowest idx of arr
  * @enth: highest idx of arr
- * @sz: sz of arr
+ * @size: sz of array
  * Return: idx of pivot
  */
 
-int partt_func(int *arr, int srtt, int enth, size_t sz)
+int partt_func(int *array, int srtt, int enth, size_t size)
 {
-	int pivot = arr[enth];
+	int pivot = array[enth];
 	int x = srtt - 1;
 	int y;
 
 	for (y = srtt; y < enth; y++)
 	{
-		if (arr[y] < pivot)
+		if (array[y] < pivot)
 		{
 			x++;
-			swp_func(arr, x, y);
+			swp_func(array, x, y);
 			if (x != y)
-				print_array(arr, sz);
+				print_array(array, size);
 		}
 	}
-	if (arr[enth] < arr[x + 1])
+	if (array[enth] < array[x + 1])
 	{
-		swp_func(arr, x + 1, enth);
-		print_array(arr, sz);
+		swp_func(array, x + 1, enth);
+		print_array(array, size);
 	}
 	return (x + 1);
 }
 
 /**
- * swp_func - swp 2 elts in an arr
- * @arr: arr of ints
+ * swp_func - swp 2 elts in an array
+ * @array: arr of ints
  * @x: idx of 1st elts
  * @y: idx of 2nd elts
  * Return: Nothing
  */
 
-void swp_func(int *arr, int x, int y)
+void swp_func(int *array, int x, int y)
 {
 	int tmp;
 
-	tmp = arr[x];
-	arr[x] = arr[y];
-	arr[y] = tmp;
+	tmp = array[x];
+	array[x] = array[y];
+	array[y] = tmp;
 }
 
 /**
- * qck_srt - sort an arr of ints in ascndg order
+ * quick_sort - sort an arr of ints in ascndg order
  * Quick sort algo
- * @arr: arr of ints
- * @sz: sz of arr
+ * @array: arr of ints
+ * @size: sz of arr
  * Return: Nothing
  */
 
-void qck_srt(int *arr, size_t sz)
+void quick_sort(int *array, size_t size)
 {
-	if (sz < 2 || !arr)
+	if (size < 2 || !array)
 		return;
-	qck_srt_rcrsv(arr, 0, sz - 1, sz);
+	qck_srt_rcrsv(array, 0, size - 1, size);
 }
 
 /**
- * qck_srt_rcrsv - rcrsv hlpr funct for qck_srt
- * @arr: arr of ints
+ * qck_srt_rcrsv - rcrsv hlpr funct for quick_sort
+ * @array: arr of ints
  * @srtt: lowest idx of arr
  * @enth: highest idx of arr
- * @sz: sz of arr
+ * @size: sz of arr
  * Return: Nothing
  */
 
-void qck_srt_rcrsv(int *arr, int srtt, int enth, size_t sz)
+void qck_srt_rcrsv(int *array, int srtt, int enth, size_t size)
 {
 	int pvar;
 
 	if (srtt < enth)
 	{
-		pvar = partt_func(arr, srtt, enth, sz);
-		qck_srt_rcrsv(arr, srtt, pvar - 1, sz);
-		qck_srt_rcrsv(arr, pvar + 1, enth, sz);
+		pvar = partt_func(array, srtt, enth, size);
+		qck_srt_rcrsv(array, srtt, pvar - 1, size);
+		qck_srt_rcrsv(array, pvar + 1, enth, size);
 	}
 }
 
