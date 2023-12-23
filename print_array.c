@@ -2,25 +2,22 @@
 #include <stdio.h>
 
 /**
- * print_array - the func prints an arr of ints
+ * print_array - Prints an array of integers
  *
- * @array: The arr 2 be printd
- * @size: Num of elemts in arr
- * 
- * return : Nothing
-*/
-
+ * @array: The array to be printed
+ * @size: Number of elements in @array
+ */
 void print_array(const int *array, size_t size)
 {
-	size_t x = 0;
+    size_t i;
 
-	while (array && x < size)
-	{
-		if (x > 0)
-			printf(", ");
-		printf("%d", array[x]);
-		++x;
-	}
-	printf("\n");
+    i = 0;
+    while (array && i < size)
+    {
+        if (i > 0)
+            printf(", ");
+        printf("%d", array[i]);
+        ++i;
+    }
+    printf("\n");
 }
-
