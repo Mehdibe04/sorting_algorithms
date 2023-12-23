@@ -51,21 +51,6 @@ void swp_func(int *array, int x, int y)
 }
 
 /**
- * quick_sort - sort an arr of ints in ascndg order
- * Quick sort algo
- * @array: arr of ints
- * @size: sz of arr
- * Return: Nothing
- */
-
-void quick_sort(int *array, size_t size)
-{
-	if (size < 2 || !array)
-		return;
-	qck_srt_rcrsv(array, 0, size - 1, size);
-}
-
-/**
  * qck_srt_rcrsv - rcrsv hlpr funct for quick_sort
  * @array: arr of ints
  * @srtt: lowest idx of arr
@@ -86,5 +71,17 @@ void qck_srt_rcrsv(int *array, int srtt, int enth, size_t size)
 	}
 }
 
+/**
+ * quick_sort - sort an arr of ints in ascndg order
+ * Quick sort algo
+ * @array: arr of ints
+ * @size: sz of arr
+ * Return: Nothing
+ */
 
-
+void quick_sort(int *array, size_t size)
+{
+        if (size < 2 || !array)
+                return;
+        qck_srt_rcrsv(array, 0, size - 1, size);
+}
